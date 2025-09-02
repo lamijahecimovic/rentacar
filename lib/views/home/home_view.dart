@@ -16,9 +16,9 @@ class Homeview extends StatelessWidget {
         children: <Widget>[
           Navigation(),
           Expanded(
-              child: ScreenTypeLayout(
-            mobile: HomeContentMobile(),
-            desktop: HomeContentDesktop(),
+              child: ScreenTypeLayout.builder(
+            mobile: (context) => HomeContentMobile(),
+            desktop: (context) => HomeContentDesktop(),
           ))
         ],
       )),
