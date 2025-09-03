@@ -9,19 +9,26 @@ class Homeview extends StatelessWidget {
   const Homeview({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: CenteredView(
-          child: Column(
-        children: <Widget>[
-          Navigation(),
-          Expanded(
-              child: ScreenTypeLayout.builder(
-            mobile: (context) => HomeContentMobile(),
-            desktop: (context) => HomeContentDesktop(),
-          ))
-        ],
-      )),
+    return ResponsiveBuilder(
+      builder: (context, sizingInformation) => Scaffold(
+        drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
+            ? NavigationDrawer(
+                children: [],
+              )
+            : null,
+        backgroundColor: Colors.white,
+        body: CenteredView(
+            child: Column(
+          children: <Widget>[
+            Navigation(),
+            Expanded(
+                child: ScreenTypeLayout.builder(
+              mobile: (context) => HomeContentMobile(),
+              desktop: (context) => HomeContentDesktop(),
+            ))
+          ],
+        )),
+      ),
     );
   }
 }
