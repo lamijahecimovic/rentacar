@@ -1,7 +1,5 @@
 import 'package:app/views/home/home_content_desktop.dart';
 import 'package:app/views/home/home_content_mobile.dart';
-import 'package:app/widgets/centered_view/centered_view.dart';
-import 'package:app/widgets/navigation_bar/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -9,26 +7,9 @@ class Homeview extends StatelessWidget {
   const Homeview({super.key});
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBuilder(
-      builder: (context, sizingInformation) => Scaffold(
-        drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
-            ? NavigationDrawer(
-                children: [],
-              )
-            : null,
-        backgroundColor: Colors.white,
-        body: CenteredView(
-            child: Column(
-          children: <Widget>[
-            Navigation(),
-            Expanded(
-                child: ScreenTypeLayout.builder(
-              mobile: (context) => HomeContentMobile(),
-              desktop: (context) => HomeContentDesktop(),
-            ))
-          ],
-        )),
-      ),
+    return ScreenTypeLayout.builder(
+      mobile: (context) => HomeContentMobile(),
+      desktop: (context) => HomeContentDesktop(),
     );
   }
 }

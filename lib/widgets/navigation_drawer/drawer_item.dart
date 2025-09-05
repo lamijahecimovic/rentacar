@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 class DrawerItem extends StatelessWidget {
   final String title;
   final IconData icon;
-  const DrawerItem(
-    this.title,
-    this.icon,
-  );
+  final String navigationPath;
+  const DrawerItem(this.title, this.icon, this.navigationPath, {super.key});
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 30, top: 60),
@@ -17,7 +15,7 @@ class DrawerItem extends StatelessWidget {
           SizedBox(
             width: 20,
           ),
-          NavBarItem(title)
+          NavBarItem(title, navigationPath)
         ],
       ),
     );

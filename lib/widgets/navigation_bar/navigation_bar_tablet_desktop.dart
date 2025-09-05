@@ -1,3 +1,4 @@
+import 'package:app/routing/route_names.dart';
 import 'package:app/widgets/navigation_bar/navbar_item.dart';
 import 'package:app/widgets/navigation_bar/navbar_logo.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +14,11 @@ class NavigationBarTabletDesktop {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              NavBarItem('Episodes'),
+              NavBarItem('Episodes', EpisodesRoute),
               SizedBox(
                 width: 60,
               ),
-              NavBarItem('About')
+              NavBarItem('About', AboutRoute),
             ],
           )
         ],
